@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import TaskHistory from '../../backend/models/task';
-import TaskHistoryLogs from './assets/TaskHistoryLogs';
+import TaskHistoryLogs from './Pages/TaskHistoryLogs';
 
 const App = () => {
   const [formData, setFormData] = useState({
