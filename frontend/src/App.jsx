@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import TaskHistory from '../../backend/models/task';
+import TaskHistoryLogs from './assets/TaskHistoryLogs';
 
 const App = () => {
   const [formData, setFormData] = useState({
@@ -20,7 +22,7 @@ const App = () => {
     e.preventDefault();
     try {
       // Send the form data to the backend
-      const response = await axios.post('http://localhost:10000/api/mail/send', formData);
+      const response = await axios.post('https://taskscheduler-5w49.onrender.com/api/mail/send', formData);
       alert(response.data);
     } catch (error) {
       console.error('Error sending form data:', error);
@@ -85,6 +87,7 @@ const App = () => {
           Schedule Email
         </button>
       </form>
+      <TaskHistoryLogs />
     </div>
   );
 };
