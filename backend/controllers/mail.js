@@ -6,9 +6,9 @@ export const send = async (req, res) =>{
     const { email, subject, message } = req.body;
 
     const transporter = nodemailer.createTransport({
-        host: process.env.SMTP_HOST, // Replace with your provider's SMTP server
-        port: parseInt(process.env.SMTP_PORT, 10),
-        secure: false, // true for 465, false for other ports
+        host:process.env.SMTP_HOST, // Replace with your provider's SMTP server
+        port: 465,
+        secure: true, // true for 465, false for other ports
         auth: {
           user: process.env.SMTP_USER,
           pass: process.env.SMTP_PASS,
@@ -24,8 +24,8 @@ export const send = async (req, res) =>{
       };
       try {
         const info = await transporter.sendMail(mailOptions);
-        console.log('Email sent: ' + info.response);
-        res.status(200).send('Email Sent Successfully');
+        console.log('Reminder Email sent: ' + info.response);
+        res.status(200).send('Reminder Email Sent Successfully');
     } catch (error) {
         console.error('Error sending email:', error);
         res.status(500).send('Error sending email');
