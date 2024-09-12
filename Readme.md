@@ -2,12 +2,22 @@
   
   Task scheduler in Node.js that periodically executes tasks like sending reminder emails.
 
-# Tech Stacks Used
+# WorkFlow
+ ## Scheduling Emails 
+  The project expects a request body with details like recipient email, subject, message, and the desired schedule in cron format.
+## Schedule the email
+  A cron job is created using the schedule function from node-cron. Inside the job, it attempts to send the email using the transporter and mail options.
+## Manage sending and history
+  Upon successful email sending, it logs the response and creates a new TaskHistory entry. This entry stores details like email, subject, message, schedule, execution time, and a "Success" status.
+  In case of an error while sending, it logs the error and creates a TaskHistory entry with details, including the error message, and sets the status to "Failed."
 
-## Nodejs
-## Reactjs
-## Expressjs
-## MongoDB
+# Tech Stacks Used
+<ul>
+  <li>Nodejs</li>
+  <li>Reactjs</li>
+  <li>Expressjs</li>
+  <li>MongoDB</li>
+</ul> 
 
 # API Template
 
